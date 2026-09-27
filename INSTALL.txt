@@ -1,0 +1,20 @@
+Mod Options Menu v1.0
+Supports Helldivers 2 Steam build 25480438 / EXE 1.8.46015.0.
+
+Install Bingus Shared Loader v18 or newer and import this ZIP into Arsenal or
+HD2MM. Enable and deploy both, then restart Helldivers 2. Keep the shared
+loader as the winning Wwise startup replacement.
+
+Open the escape menu and choose MODS beside GAME, SOCIAL and OPTIONS. Each
+installed mod that registers options has its own category there. Press APPLY
+(Tab) to apply changes. Leaving with unapplied changes shows the game's
+UNAPPLIED CHANGES prompt; confirming it discards them.
+
+Mod Options Menu is a separate dependency and is not bundled in Vanilla Plus
+Megapack. Shallow Water Diving v3.8 uses it for its maximum dive depth slider.
+
+Saved values: %LOCALAPPDATA%/CowboyBingus/Helldivers2/Logs/ModOptionsMenu.values
+Log: %LOCALAPPDATA%/CowboyBingus/Helldivers2/Logs/ModOptionsMenu.log
+
+https://github.com/CowboyBingus/BingusSharedLoader/releases/latest
+https://github.com/CowboyBingus/ModOptionsMenu/releases/latest

@@ -1,0 +1,15 @@
+[
+  ".gitattributes",
+  ".gitignore",
+  "CHANGELOG.md",
+  "INSTALL.txt",
+  "README.md",
+  "docs/RELEASE_NOTES.md",
+  "docs/VALIDATION.md",
+  "publication-files.json",
+  "scripts/build.py",
+  "src/mod_options_menu.lua",
+  "tests/live/options_test.lua",
+  "tests/run_game_lua.py",
+  "tests/test_options_tab.lua"
+]
