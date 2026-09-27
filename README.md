@@ -53,3 +53,5 @@ Clone [Bingus Shared Loader](https://github.com/CowboyBingus/BingusSharedLoader)
 - `python -B scripts/build.py` builds `releases/Mod-Options-Menu-v1.0.zip` and the live test addon `build/Mod-Options-Test-Addon.zip` (six sample mods, logs to `ModOptionsTest.log`).
 
 [Changes](CHANGELOG.md) · [Release notes](docs/RELEASE_NOTES.md) · [Validation](docs/VALIDATION.md)
+
+**AI disclosure:** Claude Opus 5.5 assisted with research, implementation, tests and documentation.
