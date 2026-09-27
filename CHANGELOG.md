@@ -1,3 +1,8 @@
+# v1.0.1
+
+- Artwork-only release: the addon is identical to v1.0 (same compiled resource).
+- The release ZIP now includes the mod's square cover (`thumbnail.png`), which Arsenal and HD2MM show for it, and the README opens with the banner.
+
 # v1.0
 
 - Adds a native MODS tab to the escape menu, beside GAME, SOCIAL and OPTIONS. Each mod that registers options gets its own category button (up to 8) with native toggle, choice and slider rows (up to 32 per mod) and descriptions in the game's description box.

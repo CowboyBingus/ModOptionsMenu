@@ -23,7 +23,7 @@ from build_addon import entry_source  # noqa: E402
 
 
 HERE = Path(__file__).resolve().parents[1]
-VERSION = "1.0"
+VERSION = "1.0.1"
 LUA_NAME = "mods/cowboybingus/mod_options_menu"
 GUID = "95ef276a-6287-465f-ac5b-8512d2227b74"
 TEST_NAME = "mods/cowboybingus/mod_options_test"
@@ -61,7 +61,8 @@ def package(output: Path, name: str, source: Path, guid: str, title: str, descri
 def build(output: Path) -> Path:
     return package(output, LUA_NAME, HERE / "src" / "mod_options_menu.lua", GUID,
                    "Mod Options Menu v" + VERSION, DESCRIPTION,
-                   {"INSTALL.txt": (HERE / "INSTALL.txt").read_bytes()})
+                   {"INSTALL.txt": (HERE / "INSTALL.txt").read_bytes(),
+                    "thumbnail.png": (HERE / "assets" / "thumbnail.png").read_bytes()})
 
 
 def build_test(output: Path) -> Path:

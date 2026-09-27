@@ -1,4 +1,6 @@
-# Mod Options Menu v1.0
+![Mod Options Menu](assets/banner.png)
+
+# Mod Options Menu v1.0.1
 
 Adds a native **MODS** tab beside GAME, SOCIAL and OPTIONS in the escape menu. Each mod that registers options gets its own category button (up to 8), and its options appear as native rows (up to 32 per mod): toggles, choices and sliders, with descriptions in the game's description box. Values are saved to `%LOCALAPPDATA%\CowboyBingus\Helldivers2\Logs\ModOptionsMenu.values`.
 
@@ -50,8 +52,8 @@ end
 Clone [Bingus Shared Loader](https://github.com/CowboyBingus/BingusSharedLoader) beside this repository (or set `BINGUS_SHARED_LOADER` to its path); the build uses its `scripts/archive.py` and `scripts/build_addon.py`.
 
 - `python tests/run_game_lua.py --run tests/test_options_tab.lua` drives the tab against simulated game memory in the game's own `lua51.dll` (set `HD2_LUA51_DLL` for a nonstandard installation).
-- `python -B scripts/build.py` builds `releases/Mod-Options-Menu-v1.0.zip` and the live test addon `build/Mod-Options-Test-Addon.zip` (six sample mods, logs to `ModOptionsTest.log`).
+- `python -B scripts/build.py` builds `releases/Mod-Options-Menu-v1.0.1.zip` and the live test addon `build/Mod-Options-Test-Addon.zip` (six sample mods, logs to `ModOptionsTest.log`).
 
-[Changes](CHANGELOG.md) · [Release notes](docs/RELEASE_NOTES.md) · [Validation](docs/VALIDATION.md)
+[Changes](CHANGELOG.md) · [Release notes](docs/RELEASE_NOTES.md) · [Validation](docs/VALIDATION.md) · [Artwork](assets/ARTWORK.md)
 
-**AI disclosure:** Claude Opus 5.5 assisted with research, implementation, tests and documentation.
+**AI disclosure:** Claude Opus 5.5 assisted with research, implementation, tests, documentation and artwork.
