@@ -8,7 +8,7 @@ Changes work as on the OPTIONS tab: they take effect when you press **APPLY** (T
 
 [Shallow Water Diving v3.8](https://github.com/CowboyBingus/ShallowWaterDiving/releases/latest) adds its maximum dive depth slider here.
 
-Install [the release ZIP](https://github.com/CowboyBingus/ModOptionsMenu/releases/latest) and [Bingus Shared Loader v18 or newer](https://github.com/CowboyBingus/BingusSharedLoader/releases/latest), plus the mods that use it. Enable and deploy, then restart the game. Keep the shared loader as the winning Wwise startup replacement. Mod Options Menu is a separate dependency and is not bundled in Vanilla Plus Megapack.
+Install [the release ZIP](https://github.com/CowboyBingus/ModOptionsMenu/releases/latest) and [Bingus Shared Loader v18 or newer](https://github.com/CowboyBingus/BingusSharedLoader/releases/latest), plus the mods that use it. Enable and deploy, then restart the game. Keep the shared loader as the winning Wwise startup replacement. Vanilla Plus Megapack v33 also contains Mod Options Menu as an option; use either the Megapack option or this package, not both.
 
 Steam build **25480438** only: the addon checks the game.dll and EXE hashes and every native entry point before touching the menu. With the escape menu closed it costs one small memory read per frame; with it open, two. Neither allocates. Measured in recorded play: about 0.006 ms per frame aboard the ship and 0.002 ms per frame in missions.
 
