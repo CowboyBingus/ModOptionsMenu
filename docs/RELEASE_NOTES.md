@@ -1,2 +1,5 @@
-- Artwork-only release: the addon is identical to v1.0 (same compiled resource).
-- The release ZIP now includes the mod's square cover (`thumbnail.png`), which Arsenal and HD2MM show for it, and the README opens with the banner.
+- Translatable: the MODS tab's own texts follow the game's Text Language when a translation is installed (see TRANSLATING.md).
+- For mod authors (api version 2): option texts may be functions that return the text in the current language.
+- Text limits count characters instead of bytes, so Chinese, Korean or Cyrillic text gets the same room as English.
+- Mod names and choices are upper-cased in every script the game's fonts carry.
+- Measured in live play: 0.003 ms per frame, unchanged from v1.0.

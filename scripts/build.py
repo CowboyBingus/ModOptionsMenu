@@ -20,10 +20,13 @@ LOADER = Path(os.environ.get("BINGUS_SHARED_LOADER",
 sys.path.insert(0, str(LOADER / "scripts"))
 from archive import ARCHIVE, make_archive, resource_hash  # noqa: E402
 from build_addon import entry_source  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from entry import entry_text, locale_files  # noqa: E402
+import translations  # noqa: E402
 
 
 HERE = Path(__file__).resolve().parents[1]
-VERSION = "1.0.1"
+VERSION = "1.1"
 LUA_NAME = "mods/cowboybingus/mod_options_menu"
 GUID = "95ef276a-6287-465f-ac5b-8512d2227b74"
 TEST_NAME = "mods/cowboybingus/mod_options_test"
@@ -32,9 +35,9 @@ DESCRIPTION = ("Adds a native MODS tab beside Game, Social and Options: each ins
                "own category with native toggles, choices and sliders. Requires Bingus Shared Loader v18+.")
 
 
-def package(output: Path, name: str, source: Path, guid: str, title: str, description: str,
+def package(output: Path, name: str, source: bytes, guid: str, title: str, description: str,
             extra: dict[str, bytes]) -> Path:
-    body = entry_source(name, source.read_bytes())
+    body = entry_source(name, source)
     lua = struct.pack("<II", len(body), 2) + body
     option = {"Name": title, "Description": description, "Include": ["Addon"]}
     manifest = {"Version": 1, "Guid": str(uuid.UUID(guid)), "Name": title,
@@ -59,14 +62,28 @@ def package(output: Path, name: str, source: Path, guid: str, title: str, descri
 
 
 def build(output: Path) -> Path:
-    return package(output, LUA_NAME, HERE / "src" / "mod_options_menu.lua", GUID,
+    # Bundled translations must be data only and free of errors.
+    for path in locale_files(HERE)[1:]:
+        problems = translations.check(HERE / "locales", path.stem, out=lambda line: None)
+        if problems.errors:
+            raise SystemExit(chr(10).join(problems.errors))
+    entry = entry_text(HERE)
+    # The assembled entry must compile in the game's own LuaJIT (the main file
+    # is close to Lua's limit of 200 locals per function).
+    entry_path = HERE / "build" / "mod_options_menu.lua"
+    entry_path.parent.mkdir(parents=True, exist_ok=True)
+    entry_path.write_bytes(entry)
+    sys.path.insert(0, str(HERE / "tests"))
+    from run_game_lua import check  # noqa: E402
+    check(entry_path)
+    return package(output, LUA_NAME, entry, GUID,
                    "Mod Options Menu v" + VERSION, DESCRIPTION,
                    {"INSTALL.txt": (HERE / "INSTALL.txt").read_bytes(),
                     "thumbnail.png": (HERE / "assets" / "thumbnail.png").read_bytes()})
 
 
 def build_test(output: Path) -> Path:
-    return package(output, TEST_NAME, HERE / "tests" / "live" / "options_test.lua", TEST_GUID,
+    return package(output, TEST_NAME, (HERE / "tests" / "live" / "options_test.lua").read_bytes(), TEST_GUID,
                    "Mod Options Test Addon", "Registers sample options for six test mods and logs "
                    "changes to ModOptionsTest.log. Requires Mod Options Menu.", {})
 
