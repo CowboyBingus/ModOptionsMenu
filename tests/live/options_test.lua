@@ -1,8 +1,10 @@
 -- HD2-Addon: mods/cowboybingus/mod_options_test
--- Registers sample options for six test mods and logs every change. The six
--- mods land on the GAMEPLAY, DISPLAY, GRAPHICS, AUDIO, HUD and ACCESSIBILITY
--- panels, covering each panel family; ECHO fills all 32 rows to scroll.
--- Descriptions: short, long (several lines) and missing, on every mod.
+-- Registers sample options for twelve test mods and logs every change. More
+-- than 8 mods, so the MODS tab shows them in pages: ALPHA to GOLF and the page
+-- control on page 1, HOTEL to LIMA and two hidden buttons on page 2. ALPHA to
+-- FOXTROT land on the GAMEPLAY, DISPLAY, GRAPHICS, AUDIO, HUD and
+-- ACCESSIBILITY panels, covering each panel family; ECHO fills all 32 rows to
+-- scroll. Descriptions: short, long (several lines) and missing.
 local loader = rawget(_G, 'CowboyBingusModLoader')
 local log_file
 if loader and type(loader.open_log) == 'function' then
@@ -48,6 +50,11 @@ for index = 1, 32 do
                              {type = 'toggle', label = 'Echo Row ' .. index, mod = 'Test Echo',
                               gap = index % 8 == 1,
                               description = index % 2 == 1 and ('Echo row ' .. index .. ', odd rows only.') or nil}}
+end
+for index, name in ipairs({'Golf', 'Hotel', 'India', 'Juliett', 'Kilo', 'Lima'}) do
+    OPTIONS[#OPTIONS + 1] = {'test.' .. name:lower() .. '.enabled',
+                             {type = 'toggle', label = 'Enabled', mod = 'Test ' .. name, default = index % 2 == 0,
+                              description = 'Test mod ' .. (6 + index) .. ' of 12, for the pages past 8 mods.'}}
 end
 
 local registered = false

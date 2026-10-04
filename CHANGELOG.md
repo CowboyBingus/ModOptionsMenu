@@ -1,3 +1,24 @@
+# v1.2
+
+- More than 8 mods with options fit the MODS tab: the category buttons show 7 mods at a time, and the 8th button turns the page (up to 16 pages, 112 mods). A 9th mod's options used to be registered but never shown.
+- Values are saved through a temp file, and the previous file is kept as `ModOptionsMenu.values.bak` for when the values file is missing or unreadable. A crash or a full disk during a save no longer loses every mod's settings.
+- A failed save keeps the values, is logged once and is tried again 10 seconds later instead of every frame.
+- The values file is written only when a value changed, and a save still due is written when the game shuts down.
+- A saved NaN or infinite slider value always loads as the option's default; an infinity used to load as the slider's minimum or maximum.
+- A MODS row whose slider the game or another mod sets to NaN or an infinity, or whose choice is past the option's choices, is set back to its value instead of becoming an edit that APPLY passes on.
+- Every Windows function the addon calls is declared under a private name, so another mod's declarations of the same functions can no longer change the prototypes it calls.
+- The update runs on Bingus Shared Runtime's guard, like the family's other mods: an error in an update below MOM pauses it until 60 frames run cleanly, handing an open MODS tab back to the game.
+- After 8 errors in one burst the update stops for the session, handing an open MODS tab back to the game first; errors about a minute apart never add up, and the API keeps working.
+- Each burst logs only its first error, pauses and resumes get a line each, and the status is in `BingusRuntime.statuses.ModOptionsMenu`.
+- The update passes every argument and return value through to the update it wraps, not just the frame time.
+- The game build check takes its module hashes from Bingus Shared Runtime's session cache, so each game file is hashed once per session for every mod.
+- For mod authors (api `version` 3): a 113th mod's `register_option` returns `false` with the reason "all 112 mod categories are in use" instead of `true`.
+- For mod authors: categories are keyed by the new `spec.mod_id` (a stable id such as 'author.mod'), or else by the registering addon and the first mod name it gave. A translated mod name no longer splits a mod into two categories, and two mods with the same name keep their own.
+- For mod authors: `set()` no longer writes the MODS rows itself; the value counts at once and a shown row follows on the next frame, so a call while the menu closes cannot write into it.
+- For mod authors: a slider's `min`, `max`, `step` and `default` must be finite numbers that fit a float, and `set()` refuses NaN and both infinities with "invalid value".
+- For contributors: the build runs every test in a LuaJIT and in the game's lua51.dll before it packages anything.
+- Measured in live play: 0.004 ms per frame in missions and 0.007 on the ship.
+
 # v1.1
 
 - Translatable: the MODS tab's own texts follow the game's Text Language when a translation is installed (see TRANSLATING.md).

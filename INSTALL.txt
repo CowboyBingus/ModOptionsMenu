@@ -1,4 +1,4 @@
-Mod Options Menu v1.1
+Mod Options Menu v1.2
 Supports Helldivers 2 Steam build 25480438 / EXE 1.8.46015.0.
 
 Install Bingus Shared Loader v18 or newer and import this ZIP into Arsenal or
@@ -11,7 +11,7 @@ installed mod that registers options has its own category there. Press APPLY
 UNAPPLIED CHANGES prompt; confirming it discards them.
 
 Shallow Water Diving and Better Lobby Management offer their settings here.
-Vanilla Plus Megapack v36 also bundles Mod Options Menu v1.1 as an option: use
+Vanilla Plus Megapack also bundles Mod Options Menu as an option: use
 either that option or this standalone addon, not both.
 
 The MODS tab follows the game's Text Language when a translation is

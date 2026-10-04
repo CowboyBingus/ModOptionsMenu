@@ -1,5 +1,7 @@
-- Translatable: the MODS tab's own texts follow the game's Text Language when a translation is installed (see TRANSLATING.md).
-- For mod authors (api version 2): option texts may be functions that return the text in the current language.
-- Text limits count characters instead of bytes, so Chinese, Korean or Cyrillic text gets the same room as English.
-- Mod names and choices are upper-cased in every script the game's fonts carry.
-- Measured in live play: 0.003 ms per frame, unchanged from v1.0.
+- More than 8 mods with options now fit the MODS tab: the 8th category button turns the page (up to 112 mods).
+- Option values are saved with a backup, so a crash or a full disk during a save no longer loses every mod's settings.
+- NaN or infinite slider values, saved or set by another mod, fall back to a valid value.
+- Another mod's Windows declarations can no longer change the functions the menu calls.
+- When the game or another mod raises an error, the menu pauses and hands an open MODS tab back to the game; 8 errors in one burst stop it for the session.
+- For mod authors: a stable `mod_id` keeps a mod's category across languages, and a 113th mod is refused instead of hiding another.
+- Measured in live play: 0.004 ms per frame in missions and 0.007 on the ship.
