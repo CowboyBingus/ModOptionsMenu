@@ -1,3 +1,7 @@
+# v1.2.1
+
+- Fixed: opening the escape menu and going straight to MODS, then to OPTIONS, drew the categories MODS had hidden on top of GAMEPLAY until the menu was opened again; every category now keeps its place.
+
 # v1.2
 
 - More than 8 mods with options fit the MODS tab: the category buttons show 7 mods at a time, and the 8th button turns the page (up to 16 pages, 112 mods). A 9th mod's options used to be registered but never shown.

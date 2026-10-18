@@ -1,6 +1,6 @@
 ![Mod Options Menu](assets/banner.png)
 
-# Mod Options Menu v1.2
+# Mod Options Menu v1.2.1
 
 Adds a native **MODS** tab beside GAME, SOCIAL and OPTIONS in the escape menu. Each mod that registers options gets a category button (with more than 8, the buttons show 7 mods at a time and the 8th turns the page), and its options appear as native rows (up to 32 per mod): toggles, choices and sliders, with descriptions in the game's description box. Values are saved to `%LOCALAPPDATA%\CowboyBingus\Helldivers2\Logs\ModOptionsMenu.values`, with the previous save kept beside it as `ModOptionsMenu.values.bak` (read if the values file is missing or damaged; to reset every option, delete both).
 
