@@ -1,7 +1,0 @@
-/research/
-/build/
-/releases/
-__pycache__/
-*.pyc
-.env
-.env.*

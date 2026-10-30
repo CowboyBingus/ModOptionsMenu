@@ -1,1 +1,0 @@
-- Fixed: opening the escape menu and going straight to MODS, then to OPTIONS, drew the categories MODS had hidden on top of GAMEPLAY until the menu was opened again; every category now keeps its place.
